@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSON 小工具 · 美化与对比</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>JSON 小工具</h1>
+  <p class="subtitle">美化 · 校验 · 对比，全程在浏览器本地完成，不上传数据</p>
+  <nav class="tabs">
+    <button class="tab active" data-tab="beautify">美化</button>
+    <button class="tab" data-tab="diff">对比</button>
+  </nav>
+</header>
+<main>
+  <section id="tab-beautify" class="panel active">
+    <div class="toolbar">
+      <label>缩进
+        <select id="indent">
+          <option value="2" selected>2 空格</option>
+          <option value="4">4 空格</option>
+          <option value="tab">Tab</option>
+        </select>
+      </label>
+      <button id="btn-format">美化</button>
+      <button id="btn-minify">压缩</button>
+      <button id="btn-sample">填示例</button>
+      <button id="btn-copy">复制结果</button>
+      <button id="btn-clear" class="ghost">清空</button>
+    </div>
+    <textarea id="input" placeholder='在这里粘贴 JSON，例如 {"name":"muse","ok":true}' spellcheck="false"></textarea>
+    <div id="beautify-msg" class="msg"></div>
+    <pre id="output" class="output" aria-live="polite"></pre>
+  </section>
+  <section id="tab-diff" class="panel">
+    <div class="toolbar">
+      <button id="btn-diff">开始对比</button>
+      <button id="btn-diff-sample">填示例</button>
+      <button id="btn-diff-clear" class="ghost">清空</button>
+    </div>
+    <div class="diff-inputs">
+      <div>
+        <h3>左边 JSON</h3>
+        <textarea id="diff-a" placeholder="粘贴第一份 JSON" spellcheck="false"></textarea>
+      </div>
+      <div>
+        <h3>右边 JSON</h3>
+        <textarea id="diff-b" placeholder="粘贴第二份 JSON" spellcheck="false"></textarea>
+      </div>
+    </div>
+    <div id="diff-msg" class="msg"></div>
+    <div id="diff-output" class="output"></div>
+  </section>
+</main>
+<footer>纯前端 · 数据不出浏览器</footer>
+<script src="app.js"></script>
+</body>
+</html>
